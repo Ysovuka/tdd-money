@@ -5,7 +5,7 @@ using Xunit;
 
 namespace TestDrivenDevelopment.Money.Tests
 {
-    public class Multiplication
+    public class MoneyTests
     {
         [Fact]
         public void testMultiplication()
@@ -28,6 +28,16 @@ namespace TestDrivenDevelopment.Money.Tests
         {
             Assert.Equal("USD", Money.dollar(1).Currency());
             Assert.Equal("CHF", Money.franc(1).Currency());
+        }
+
+        [Fact]
+        public void testSimpleAddition()
+        {
+            Money five = Money.dollar(5);
+            IExpression sum = five.Plus(five);
+            Bank bank = new Bank();
+            Money reduced = bank.Reduce(sum, "USD");
+            Assert.Equal(Money.dollar(10), sum);
         }
     }
 }

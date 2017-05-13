@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TestDrivenDevelopment.Money
 {
-    public class Money
+    public class Money : IExpression
     {
         protected int amount;
         protected string currency;
@@ -34,6 +34,11 @@ namespace TestDrivenDevelopment.Money
         public Money Times(int multiplier)
         {
             return new Money(amount * multiplier, currency);
+        }
+
+        public IExpression Plus(Money addend)
+        {
+            return new Money(amount + addend.amount, currency);
         }
 
         public string Currency()
