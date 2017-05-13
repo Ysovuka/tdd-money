@@ -10,19 +10,19 @@ namespace TestDrivenDevelopment.Money.Tests
         [Fact]
         public void testMultiplication()
         {
-            Dollar five = new Dollar(5);
-            Assert.Equal(new Dollar(10), five.Times(2));
-            Assert.Equal(new Dollar(15), five.Times(3));
+            Money five = Money.dollar(5);
+            Assert.Equal(Money.dollar(10), five.Times(2));
+            Assert.Equal(Money.dollar(15), five.Times(3));
         }
 
         [Fact]
         public void testEquality()
         {
-            Assert.True(new Dollar(5).Equals(new Dollar(5)));
-            Assert.False(new Dollar(5).Equals(new Dollar(6)));
+            Assert.True(Money.dollar(5).Equals(Money.dollar(5)));
+            Assert.False(Money.dollar(5).Equals(Money.dollar(6)));
             Assert.True(new Franc(5).Equals(new Franc(5)));
             Assert.False(new Franc(5).Equals(new Franc(6)));
-            Assert.False(new Franc(5).Equals(new Dollar(5)));
+            Assert.False(new Franc(5).Equals(Money.dollar(5)));
         }
 
         [Fact]
