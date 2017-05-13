@@ -13,9 +13,9 @@ namespace TestDrivenDevelopment.Money
 
         public int amount = 0;
 
-        public void times(int multiplier)
+        public Dollar times(int multiplier)
         {
-            amount *= multiplier;
+            return new Dollar(amount * multiplier);
         }
     }
 }
