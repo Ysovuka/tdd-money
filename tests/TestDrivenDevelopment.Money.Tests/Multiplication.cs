@@ -21,5 +21,13 @@ namespace TestDrivenDevelopment.Money.Tests
             Assert.True(new Dollar(5).Equals(new Dollar(5)));
             Assert.False(new Dollar(5).Equals(new Dollar(6)));
         }
+
+        [Fact]
+        public void testFrancMultiplication()
+        {
+            Franc five = new Franc(5);
+            Assert.Equal(new Franc(10), five.Times(2));
+            Assert.Equal(new Franc(15), five.Times(3));
+        }
     }
 }
