@@ -11,10 +11,17 @@ namespace TestDrivenDevelopment.Money.Tests
         public void testMultiplication()
         {
             Dollar five = new Dollar(5);
-            Dollar product = five.times(2);
+            Dollar product = five.Times(2);
             Assert.Equal(10, product.amount);
-            product = five.times(3);
+            product = five.Times(3);
             Assert.Equal(15, product.amount);
+        }
+
+        [Fact]
+        public void testEquality()
+        {
+            Assert.True(new Dollar(5).equals(new Dollar(5)));
+            Assert.False(new Dollar(5).equals(new Dollar(6)));
         }
     }
 }

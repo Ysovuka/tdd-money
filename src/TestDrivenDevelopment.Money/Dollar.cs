@@ -13,9 +13,15 @@ namespace TestDrivenDevelopment.Money
 
         public int amount = 0;
 
-        public Dollar times(int multiplier)
+        public Dollar Times(int multiplier)
         {
             return new Dollar(amount * multiplier);
+        }
+
+        public bool equals(Object obj)
+        {
+            Dollar dollar = (Dollar)obj;
+            return amount == dollar.amount;
         }
     }
 }
