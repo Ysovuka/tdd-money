@@ -11,10 +11,5 @@ namespace TestDrivenDevelopment.Money
         {
 
         }
-
-        public override Money Times(int multiplier)
-        {
-            return Money.franc(amount * multiplier);
-        }
     }
 }

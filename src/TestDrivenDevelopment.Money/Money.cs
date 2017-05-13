@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TestDrivenDevelopment.Money
 {
-    public abstract class Money
+    public class Money
     {
         protected int amount;
         protected string currency;
@@ -18,7 +18,7 @@ namespace TestDrivenDevelopment.Money
         public override bool Equals(Object obj)
         {
             Money money = (Money)obj;
-            return amount == money.amount && this.GetType() == obj.GetType();
+            return amount == money.amount && currency.Equals(money.currency);
         }
 
         public static Money dollar(int amount)
@@ -31,10 +31,19 @@ namespace TestDrivenDevelopment.Money
             return new Franc(amount, "CHF");
         }
 
-        public abstract Money Times(int multiplier);
+        public Money Times(int multiplier)
+        {
+            return new Money(amount * multiplier, currency);
+        }
+
         public string Currency()
         {
             return currency;
+        }
+
+        public override string ToString()
+        {
+            return $"{amount} {currency}";
         }
 
     }
