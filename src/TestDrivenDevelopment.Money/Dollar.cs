@@ -11,14 +11,14 @@ namespace TestDrivenDevelopment.Money
             this.amount = amount;
         }
 
-        public int amount = 0;
+        private int amount = 0;
 
         public Dollar Times(int multiplier)
         {
             return new Dollar(amount * multiplier);
         }
 
-        public bool equals(Object obj)
+        public override bool Equals(Object obj)
         {
             Dollar dollar = (Dollar)obj;
             return amount == dollar.amount;
