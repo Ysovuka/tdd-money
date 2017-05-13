@@ -15,7 +15,7 @@ namespace TestDrivenDevelopment.Money
         public Money augend;
         public Money addend;
 
-        public Money Reduce(string to)
+        public Money Reduce(Bank bank, string to)
         {
             int amount = augend.Amount + addend.Amount;
             return new Money(amount, to);

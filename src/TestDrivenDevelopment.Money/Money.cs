@@ -36,9 +36,10 @@ namespace TestDrivenDevelopment.Money
             return new Money(Amount * multiplier, currency);
         }
 
-        public Money Reduce(string to)
+        public Money Reduce(Bank bank, string to)
         {
-            return this;
+            int rate = bank.Rate(currency, to);
+            return new Money(Amount / rate, to);
         }
 
         public IExpression Plus(Money addend)
