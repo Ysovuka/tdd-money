@@ -3,8 +3,34 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{18158CE3-2A38-4D7C-88B9-CA87EF48F630}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{5EE00664-3350-4089-ADD1-A3FB69C9848C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDrivenDevelopment.Money", "src\TestDrivenDevelopment.Money\TestDrivenDevelopment.Money.csproj", "{A70E2121-1C70-45A8-83C3-A2DCE4C0DD87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDrivenDevelopment.Money.Tests", "tests\TestDrivenDevelopment.Money.Tests\TestDrivenDevelopment.Money.Tests.csproj", "{42271519-644E-4A39-AFE9-D3C4D72C21DB}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A70E2121-1C70-45A8-83C3-A2DCE4C0DD87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A70E2121-1C70-45A8-83C3-A2DCE4C0DD87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A70E2121-1C70-45A8-83C3-A2DCE4C0DD87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A70E2121-1C70-45A8-83C3-A2DCE4C0DD87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42271519-644E-4A39-AFE9-D3C4D72C21DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42271519-644E-4A39-AFE9-D3C4D72C21DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42271519-644E-4A39-AFE9-D3C4D72C21DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42271519-644E-4A39-AFE9-D3C4D72C21DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A70E2121-1C70-45A8-83C3-A2DCE4C0DD87} = {18158CE3-2A38-4D7C-88B9-CA87EF48F630}
+		{42271519-644E-4A39-AFE9-D3C4D72C21DB} = {5EE00664-3350-4089-ADD1-A3FB69C9848C}
 	EndGlobalSection
 EndGlobal
