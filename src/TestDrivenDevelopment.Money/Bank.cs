@@ -8,7 +8,7 @@ namespace TestDrivenDevelopment.Money
     {
         public Money Reduce(IExpression source, string to)
         {
-            return Money.dollar(10);
+            return source.Reduce(to);
         }
     }
 }

@@ -6,19 +6,19 @@ namespace TestDrivenDevelopment.Money
 {
     public class Money : IExpression
     {
-        protected int amount;
+        public int Amount { get; }
         protected string currency;
 
         public Money(int amount, string currency)
         {
-            this.amount = amount;
+            this.Amount = amount;
             this.currency = currency;
         }
 
         public override bool Equals(Object obj)
         {
             Money money = (Money)obj;
-            return amount == money.amount && currency.Equals(money.currency);
+            return Amount == money.Amount && currency.Equals(money.currency);
         }
 
         public static Money dollar(int amount)
@@ -33,12 +33,17 @@ namespace TestDrivenDevelopment.Money
 
         public Money Times(int multiplier)
         {
-            return new Money(amount * multiplier, currency);
+            return new Money(Amount * multiplier, currency);
+        }
+
+        public Money Reduce(string to)
+        {
+            return this;
         }
 
         public IExpression Plus(Money addend)
         {
-            return new Money(amount + addend.amount, currency);
+            return new Sum(this, addend);
         }
 
         public string Currency()
@@ -48,7 +53,7 @@ namespace TestDrivenDevelopment.Money
 
         public override string ToString()
         {
-            return $"{amount} {currency}";
+            return $"{Amount} {currency}";
         }
 
     }

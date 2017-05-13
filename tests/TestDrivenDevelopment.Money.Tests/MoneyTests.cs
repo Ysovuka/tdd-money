@@ -37,7 +37,34 @@ namespace TestDrivenDevelopment.Money.Tests
             IExpression sum = five.Plus(five);
             Bank bank = new Bank();
             Money reduced = bank.Reduce(sum, "USD");
-            Assert.Equal(Money.dollar(10), sum);
+            Assert.Equal(Money.dollar(10), reduced);
+        }
+
+        [Fact]
+        public void testPlusReturnsSum()
+        {
+            Money five = Money.dollar(5);
+            IExpression result = five.Plus(five);
+            Sum sum = (Sum)result;
+            Assert.Equal(five, sum.augend);
+            Assert.Equal(five, sum.addend);
+        }
+
+        [Fact]
+        public void testReducedSum()
+        {
+            IExpression sum = new Sum(Money.dollar(3), Money.dollar(4));
+            Bank bank = new Bank();
+            Money result = bank.Reduce(sum, "USD");
+            Assert.Equal(Money.dollar(7), result);
+        }
+
+        [Fact]
+        public void testReduceMoney()
+        {
+            Bank bank = new Bank();
+            Money result = bank.Reduce(Money.dollar(1), "USD");
+            Assert.Equal(Money.dollar(1), result);
         }
     }
 }
