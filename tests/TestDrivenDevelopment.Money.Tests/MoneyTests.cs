@@ -81,5 +81,16 @@ namespace TestDrivenDevelopment.Money.Tests
         {
             Assert.Equal(1, new Bank().Rate("USD", "USD"));
         }
+
+        [Fact]
+        public void textMixedAddition()
+        {
+            IExpression fiveBucks = Money.dollar(5);
+            IExpression tenFrancs = Money.franc(10);
+            Bank bank = new Bank();
+            bank.addRate("CHF", "USD", 2);
+            Money result = bank.Reduce(fiveBucks.Plus(tenFrancs), "USD");
+            Assert.Equal(Money.dollar(10), result);
+        }
     }
 }

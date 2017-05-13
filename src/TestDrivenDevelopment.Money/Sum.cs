@@ -6,19 +6,24 @@ namespace TestDrivenDevelopment.Money
 {
     public class Sum : IExpression
     {
-        public Sum(Money augend, Money addend)
+        public Sum(IExpression augend, IExpression addend)
         {
             this.addend = addend;
             this.augend = augend;
         }
 
-        public Money augend;
-        public Money addend;
+        public IExpression augend;
+        public IExpression addend;
 
         public Money Reduce(Bank bank, string to)
         {
-            int amount = augend.Amount + addend.Amount;
+            int amount = augend.Reduce(bank, to).Amount + addend.Reduce(bank, to).Amount;
             return new Money(amount, to);
+        }
+
+        public IExpression Plus(IExpression addend)
+        {
+            return null;
         }
     }
 }

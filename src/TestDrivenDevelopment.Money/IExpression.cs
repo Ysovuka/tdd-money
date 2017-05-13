@@ -6,6 +6,7 @@ namespace TestDrivenDevelopment.Money
 {
     public interface IExpression
     {
+        IExpression Plus(IExpression eddend);
         Money Reduce(Bank bank, string to);
     }
 }
