@@ -20,17 +20,14 @@ namespace TestDrivenDevelopment.Money.Tests
         {
             Assert.True(Money.dollar(5).Equals(Money.dollar(5)));
             Assert.False(Money.dollar(5).Equals(Money.dollar(6)));
-            Assert.True(new Franc(5).Equals(new Franc(5)));
-            Assert.False(new Franc(5).Equals(new Franc(6)));
-            Assert.False(new Franc(5).Equals(Money.dollar(5)));
+            Assert.False(Money.franc(5).Equals(Money.dollar(5)));
         }
 
         [Fact]
-        public void testFrancMultiplication()
+        public void testCurrency()
         {
-            Franc five = new Franc(5);
-            Assert.Equal(new Franc(10), five.Times(2));
-            Assert.Equal(new Franc(15), five.Times(3));
+            Assert.Equal("USD", Money.dollar(1).Currency());
+            Assert.Equal("CHF", Money.franc(1).Currency());
         }
     }
 }
