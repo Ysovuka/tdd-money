@@ -11,7 +11,7 @@ namespace TestDrivenDevelopment.Money
         public override bool Equals(Object obj)
         {
             Money money = (Money)obj;
-            return amount == money.amount;
+            return amount == money.amount && this.GetType() == obj.GetType();
         }
     }
 }
