@@ -83,7 +83,7 @@ namespace TestDrivenDevelopment.Money.Tests
         }
 
         [Fact]
-        public void textMixedAddition()
+        public void testMixedAddition()
         {
             IExpression fiveBucks = Money.dollar(5);
             IExpression tenFrancs = Money.franc(10);
@@ -91,6 +91,30 @@ namespace TestDrivenDevelopment.Money.Tests
             bank.addRate("CHF", "USD", 2);
             Money result = bank.Reduce(fiveBucks.Plus(tenFrancs), "USD");
             Assert.Equal(Money.dollar(10), result);
+        }
+
+        [Fact]
+        public void testSumPlusMoney()
+        {
+            IExpression fiveBucks = Money.dollar(5);
+            IExpression tenFrancs = Money.franc(10);
+            Bank bank = new Bank();
+            bank.addRate("CHF", "USD", 2);
+            IExpression sum = new Sum(fiveBucks, tenFrancs).Plus(fiveBucks);
+            Money result = bank.Reduce(sum, "USD");
+            Assert.Equal(Money.dollar(15), result);
+        }
+
+        [Fact]
+        public void testSumTimes()
+        {
+            IExpression fiveBucks = Money.dollar(5);
+            IExpression tenFrancs = Money.franc(10);
+            Bank bank = new Bank();
+            bank.addRate("CHF", "USD", 2);
+            IExpression sum = new Sum(fiveBucks, tenFrancs).Times(2);
+            Money result = bank.Reduce(sum, "USD");
+            Assert.Equal(Money.dollar(20), result);
         }
     }
 }
